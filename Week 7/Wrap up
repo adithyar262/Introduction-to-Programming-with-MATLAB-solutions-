@@ -20,5 +20,5 @@ else
         end
     end
 end
-summa=maxv;
-index=ind;
+summa=maxv
+index=ind
