@@ -1,0 +1,24 @@
+function [summa index] = max_sum(v,n)
+maxv=0;
+ind=-1;
+if n>size(v,2)
+    summa=0
+    index=-1
+else
+    for i=1:n
+        maxv=sum(v(1:n));
+        ind=1;
+    end
+    for j=2:(size(v,2)-n+1)
+        total=0;
+        total=sum(v(j:(j+n-1)));
+        if total>maxv
+            maxv=total;
+            ind=j;
+        else
+            continue;
+        end
+    end
+end
+summa=maxv;
+index=ind;
