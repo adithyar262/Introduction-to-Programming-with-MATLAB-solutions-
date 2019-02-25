@@ -1,0 +1,16 @@
+function encoded = caesar(str,n)
+strascii=double(str);
+temp=strascii+n;
+for i=1:numel(temp)
+    while (temp(i)>126||temp(i)<32)
+        if temp(i)>126
+            diff=temp(i)-126;
+            temp(i)=31+diff;
+        else
+            diff=32-temp(i);
+            temp(i)=127-diff;
+        end
+    end
+    cipher(i)=temp(i);
+end
+encoded=char(cipher);
