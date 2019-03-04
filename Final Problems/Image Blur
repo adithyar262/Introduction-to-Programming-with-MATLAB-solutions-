@@ -1,0 +1,14 @@
+function output = blur(img,w)
+    [r c]=size(img);
+    A=(ones((r+2*w),(c+2*w)))*300;
+    A(w+1:w+r,w+1:w+c)=img;
+    S=(A<300).*A;
+    for i=w+1:w+r
+        for j=w+1:w+c
+            dig=0;
+            output((i-w),(j-w))=(sum(sum(S(i-w:i+w,j-w:j+w))));
+            dig=sum(sum(A(i-w:i+w,j-w:j+w)<270));
+            output((i-w),(j-w))=output((i-w),(j-w))/dig;
+        end
+    end
+    output=uint8(output);
