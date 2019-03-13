@@ -1,0 +1,16 @@
+function output = echo_gen(input, fs, delay, amp)
+samples=round(fs*delay);
+if samples>0
+    x=zeros(samples,1);
+else
+    x=[];
+end
+y=amp*input;
+echo=[x ; y];
+n=[input ; x];
+w = n+echo;
+if max(w)>1
+    output=w/max(w);
+else
+    output=w;
+end
