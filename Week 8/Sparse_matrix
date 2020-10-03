@@ -1,0 +1,14 @@
+function matrix = sparse2matrix(cellvec)
+size = cellvec{1}
+default = cellvec{2}
+%ele3 = cellvec{3}
+%ele4 = cellvec{4}
+len = length(cellvec)
+temp(1:size(1),1:size(2)) = default
+for i = 3 : len
+    temp(cellvec{i}(1),cellvec{i}(2)) = cellvec{i}(3)
+end
+%temp(ele3(1),ele3(2)) = ele3(3)
+%temp(ele4(1),ele4(2)) = ele4(3)
+matrix = temp
+end
